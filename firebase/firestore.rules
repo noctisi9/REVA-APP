@@ -1,0 +1,32 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Replace with your real Firebase Auth UID.
+    function isAdmin() {
+      return isSignedIn() && request.auth.uid == "REPLACE_WITH_YOUR_FIREBASE_UID";
+    }
+
+    // Content: any signed-in user can read, only the admin UID can write.
+    match /content_items/{contentId} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
+    }
+
+    // Reports: any signed-in user can file one, only the admin can read/manage them.
+    match /reports/{reportId} {
+      allow create: if isSignedIn() && request.resource.data.reporterUid == request.auth.uid;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Per-user saved items and reactions: owner-only, both directions.
+    match /users/{userId}/{document=**} {
+      allow read, write: if isSignedIn() && request.auth.uid == userId;
+    }
+  }
+}

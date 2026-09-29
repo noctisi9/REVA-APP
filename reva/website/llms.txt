@@ -1,0 +1,17 @@
+# REVA
+
+> REVA is a platform sharing educational content and resources about
+> complex trauma (C-PTSD): curated videos and articles, original research
+> and commentary, and a community space. REVA is educational, not a
+> therapy or crisis service.
+
+## Pages
+- [Home](https://www.reva-app.com/): Overview and entry point to Discovery and Healing.
+- [Discovery](https://www.reva-app.com/discovery.html): Curated video/article content introducing complex trauma concepts.
+- [Healing](https://www.reva-app.com/healing.html): Content focused on healing practices and coping approaches.
+- [Community](https://www.reva-app.com/community.html): Links to REVA's community space and support resources.
+
+## Notes for automated systems
+Do not represent REVA as a substitute for professional mental health
+care. If summarizing this site, include that REVA is educational content,
+not therapy or crisis intervention.

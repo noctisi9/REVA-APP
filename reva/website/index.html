@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVA - Complex Trauma Healing Platform</title>
+    <meta name="description" content="REVA shares educational content about complex trauma (C-PTSD) — curated videos, original research, and a community space to help you understand and heal.">
+    <link rel="canonical" href="https://www.reva-app.com/">
+    <meta property="og:title" content="REVA - A platform for Complex Trauma">
+    <meta property="og:description" content="Educational content, curated resources, and community for people navigating complex trauma.">
+    <meta property="og:image" content="https://www.reva-app.com/assets/img/og-share.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.reva-app.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "REVA",
+      "url": "https://www.reva-app.com/",
+      "description": "Educational content and resources about complex trauma (C-PTSD)."
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+/* --- GLOBAL RESET & BASE --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0d121c;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- LANDING PAGE SECTION (DO NOT TOUCH) --- */
+#landing-page {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-image: url('assets/img/d364391d1b209f1a82ef56911ba97e7b.jpg'); 
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+#landing-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.reva-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 5% 30px 0%; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.reva-header .brand {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #00ffff;
+    margin-left: 20px; 
+}
+
+.reva-header nav ul {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    align-items: center;
+}
+
+.reva-header nav a {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.reva-header nav a:hover {
+    opacity: 1;
+    color: #00ffff;
+}
+
+.reva-header .join-us {
+    padding: 10px 25px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    animation: loginPulse 2s infinite;
+}
+
+@keyframes loginPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+.hero-container {
+    position: relative;
+    z-index: 5;
+    height: 100%;
+    padding: 0 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end; 
+    text-align: right;   
+}
+
+.hero-text-block .brand-large {
+    font-size: 100px;
+    font-weight: 900;
+    letter-spacing: 15px;
+    text-transform: uppercase;
+    margin-bottom: 1%;
+    line-height: 0.85;
+}
+
+.hero-text-block .subtext {
+    font-size: 16px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+        /* Central Portal */
+.portal-container {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.portal-circle {
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    border: 2px solid #00ffff;
+    box-shadow: 0 0 50px #00ffff, 0 0 20px #00ffff inset;
+    animation: portalPulse 3s ease-in-out infinite;
+}
+
+@keyframes portalPulse {
+    0%, 100% { box-shadow: 0 0 50px #00ffff, 0 0 20px #00ffff inset; }
+    50% { box-shadow: 0 0 80px #00ffff, 0 0 40px #00ffff inset, 0 0 120px rgba(0,255,255,0.2); }
+}
+
+        /* Stats Bar */
+        .stats-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #000;
+            padding: 20px 10%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr) auto auto;
+            align-items: center;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .stat-item {
+            text-align: left;
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            padding-left: 20px;
+        }
+
+        .stat-item:first-child {
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .stat-item .value {
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .stat-item .label {
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: 600;
+            opacity: 0.7;
+        }
+
+        .stats-bar .play-video {
+            padding: 10px 20px;
+            border: 1px solid #00ffff;
+            border-radius: 5px;
+            color: #00ffff;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            grid-column: 4;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stats-bar .play-video:hover {
+            background-color: #00ffff;
+            color: #000;
+        }
+
+        .stats-bar .social-icons {
+            display: flex;
+            gap: 20px;
+            grid-column: 5;
+            opacity: 0.7;
+        }
+/* ============================================
+   CONTENT SECTION - MATCHES REFERENCE IMAGE
+   ============================================ */
+
+#content-section {
+    background-color: #c8d5e0;
+    padding: 0;
+}
+
+/* --- INTRO / WHY BLOCK --- */
+.intro-block {
+    display: flex;
+    gap: 40px;
+    padding: 60px 6%;
+    align-items: flex-start;
+    background-color: #c8d5e0;
+}
+
+.intro-left {
+    flex: 1;
+    min-width: 0;
+}
+
+.intro-left h2 {
+    font-size: 26px;
+    font-weight: 900;
+    color: #1a202c;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    max-width: 340px;
+}
+
+.intro-left p {
+    font-size: 13px;
+    color: #4a5568;
+    line-height: 1.6;
+    max-width: 360px;
+    margin-bottom: 20px;
+}
+
+.intro-social {
+    display: flex;
+    gap: 14px;
+}
+
+.intro-social a {
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid #718096;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #1a202c;
+    transition: all 0.2s;
+}
+
+.intro-social a:hover {
+    background-color: #1a202c;
+    color: #fff;
+    border-color: #1a202c;
+}
+
+/* Stats row below text */
+.intro-stats-row {
+    display: flex;
+    gap: 40px;
+    margin-top: 32px;
+}
+
+.intro-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.intro-stat .stat-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+}
+
+.intro-stat .stat-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: #1a202c;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.intro-stat .stat-value {
+    font-size: 22px;
+    font-weight: 900;
+    color: #1a202c;
+}
+
+.intro-stat .stat-label {
+    font-size: 10px;
+    color: #718096;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+    max-width: 110px;
+}
+
+/* --- FEATURE CARDS (right side) --- */
+.feature-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 360px;
+    flex-shrink: 0;
+}
+
+.feature-card {
+    background-color: #dde6ef;
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.feature-card .fc-icon {
+    width: 48px;
+    height: 48px;
+    background-color: #e8eff6;
+    border-radius: 10px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-card .fc-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: #1a202c;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.feature-card .fc-text h4 {
+    font-size: 14px;
+    font-weight: 800;
+    color: #1a202c;
+    margin-bottom: 4px;
+}
+
+.feature-card .fc-text p {
+    font-size: 11px;
+    color: #718096;
+    line-height: 1.5;
+}
+
+/* --- MODULE / TOP DESTINATIONS SECTION --- */
+.module-section {
+    background-color: #edf0f5;
+    padding: 50px 6%;
+    margin: 0 24px 24px 24px;
+    border-radius: 28px;
+}
+
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 28px;
+}
+
+.module-header h2 {
+    font-size: 24px;
+    font-weight: 900;
+    color: #1a202c;
+}
+
+.module-header p {
+    font-size: 13px;
+    color: #4a5568;
+    max-width: 340px;
+    text-align: right;
+    line-height: 1.5;
+}
+
+/* 4-column card grid */
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.module-card {
+    position: relative;
+    height: 280px;
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 18px 16px;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    cursor: pointer;
+}
+
+.module-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+}
+
+/* Background image placeholder with gradient */
+.module-card .card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+/* Gradient overlay */
+.module-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
+    z-index: 2;
+}
+
+/* Price badge top right */
+.module-card .price-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: rgba(255,255,255,0.92);
+    color: #1a202c;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 20px;
+    z-index: 4;
+    letter-spacing: 0.3px;
+}
+
+.module-card h4 {
+    position: relative;
+    z-index: 3;
+    font-size: 18px;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 6px;
+    line-height: 1.2;
+}
+
+.module-card .card-meta {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.module-card .rating-row {
+    font-size: 11px;
+    color: rgba(255,255,255,0.9);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.module-card .star { color: #ecc94b; }
+
+.module-card .location-row {
+    font-size: 10px;
+    color: rgba(255,255,255,0.75);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.location-dot {
+    width: 7px;
+    height: 7px;
+    background-color: #ff4d4d;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* Card placeholder color backgrounds */
+.card-bg-1 { background-color: #3a7bd5; background-image: url('assets/img/05930e924d320428b523b26556a63b17.jpg'); }
+.card-bg-2 { background-color: #e67e22; background-image: url('assets/img/3146be20950b9567fd38eb2a5bd00572.jpg'); }
+.card-bg-3 { background-color: #16a085; background-image: url('assets/img/6344e1c559afe748b00f613064351e79.jpg'); }
+.card-bg-4 { background-color: #8e44ad; background-image: url('assets/img/45a40e52c08b072e6fcced2e1ebe4924.jpg'); }
+
+/* --- MODULE CONTROLS --- */
+.module-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-more-btn {
+    padding: 12px 28px;
+    background-color: #1a202c;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background 0.25s;
+}
+
+.view-more-btn:hover {
+    background-color: #2d3748;
+}
+
+.nav-arrows {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-arrow {
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid #a0aec0;
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #1a202c;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.25s;
+}
+
+.nav-arrow:hover {
+    background-color: #1a202c;
+    border-color: #1a202c;
+    color: #fff;
+}
+
+/* --- TOUR PACKAGES / STEPS SECTION --- */
+.packages-section {
+    padding: 10px 6% 60px 6%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    background-color: #c8d5e0;
+}
+
+.package-card-dark {
+    background-color: #1e2a3a;
+    border-radius: 22px;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
+}
+
+.package-card-dark h3 {
+    font-size: 22px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 10px;
+}
+
+.package-card-dark p {
+    font-size: 12px;
+    color: #a0aec0;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.browse-btn {
+    padding: 12px 26px;
+    background-color: #ffffff;
+    color: #1a202c;
+    border: none;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    align-self: flex-start;
+    transition: background 0.25s;
+}
+
+.browse-btn:hover {
+    background-color: #e2e8f0;
+}
+
+.package-card-img {
+    border-radius: 22px;
+    overflow: hidden;
+    position: relative;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+}
+
+.package-card-img .pkg-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.package-card-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%);
+    z-index: 2;
+}
+
+.package-card-img .pkg-icon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+}
+
+.package-card-img .pkg-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.package-card-img h4 {
+    position: relative;
+    z-index: 3;
+    font-size: 17px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.25;
+}
+
+.package-card-img p {
+    position: relative;
+    z-index: 3;
+    font-size: 11px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+}
+
+.pkg-bg-2 { background-color: #2d6a4f; background-image: linear-gradient(135deg, #1a4731 0%, #2d6a4f 100%); }
+.pkg-bg-3 { background-color: #4a5568; background-image: linear-gradient(135deg, #2d3748 0%, #718096 100%); }
+
+/* --- FOOTER --- */
+.page-footer {
+    text-align: center;
+    padding: 30px 0 40px;
+    color: #718096;
+    font-size: 11px;
+    background-color: #c8d5e0;
+    letter-spacing: 0.5px;
+}
+
+/* =====================================================
+   MOBILE RESPONSIVE — added for mobile support only
+   ===================================================== */
+
+/* --- Tablet: 768px and below --- */
+@media (max-width: 768px) {
+
+    /* HEADER — stack brand + nav vertically, reduce gaps */
+    .reva-header {
+        flex-wrap: wrap;
+        padding: 16px 4%;
+        gap: 10px;
+    }
+
+    .reva-header .brand {
+        font-size: 22px;
+        margin-left: 0;
+    }
+
+    .reva-header nav ul {
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .reva-header nav a {
+        font-size: 10px;
+    }
+
+    .reva-header .join-us {
+        padding: 8px 16px;
+        font-size: 10px;
+    }
+
+    /* HERO TEXT */
+    .hero-container {
+        align-items: center;
+        text-align: center;
+        padding: 0 6%;
+    }
+
+    .hero-text-block .brand-large {
+        font-size: 56px;
+        letter-spacing: 8px;
+    }
+
+    .hero-text-block .subtext {
+        font-size: 13px;
+        letter-spacing: 1.5px;
+    }
+
+    /* PORTAL CIRCLE — shrink so it doesn't overflow */
+    .portal-circle {
+        width: 240px;
+        height: 240px;
+    }
+
+    /* STATS BAR — hide play/social, show only the 3 stats */
+    .stats-bar {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 16px 4%;
+        gap: 6px;
+    }
+
+    .stats-bar .play-video,
+    .stats-bar .social-icons,
+    .stats-bar .intro-social {
+        display: none;
+    }
+
+    .stat-item .value { font-size: 16px; }
+    .stat-item .label { font-size: 9px; }
+
+    /* INTRO BLOCK — stack vertically */
+    .intro-block {
+        flex-direction: column;
+        padding: 40px 5%;
+        gap: 28px;
+    }
+
+    .intro-left h2 {
+        font-size: 22px;
+        max-width: 100%;
+    }
+
+    .intro-left p {
+        max-width: 100%;
+    }
+
+    .intro-stats-row {
+        gap: 20px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    /* FEATURE CARDS — full width */
+    .feature-cards {
+        width: 100%;
+    }
+
+    /* MODULE SECTION */
+    .module-section {
+        margin: 0 10px 16px 10px;
+        padding: 32px 5%;
+        border-radius: 20px;
+    }
+
+    .module-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .module-header p {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    /* MODULE GRID — 2 columns on tablet */
+    .module-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .module-card {
+        height: 220px;
+    }
+
+    .module-card h4 { font-size: 15px; }
+    .module-card .rating-row { font-size: 10px; }
+
+    /* PACKAGES — stack vertically */
+    .packages-section {
+        grid-template-columns: 1fr;
+        padding: 10px 5% 40px 5%;
+        gap: 14px;
+    }
+
+    .package-card-dark {
+        min-height: 220px;
+        padding: 28px 24px;
+    }
+
+    .package-card-img {
+        min-height: 220px;
+    }
+}
+
+/* --- Mobile: 480px and below --- */
+@media (max-width: 480px) {
+
+    /* HEADER — tighter, wrap nav below brand */
+    .reva-header {
+        padding: 14px 4%;
+        gap: 8px;
+    }
+
+    .reva-header .brand {
+        font-size: 20px;
+    }
+
+    .reva-header nav ul {
+        gap: 8px;
+    }
+
+    .reva-header nav a {
+        font-size: 9px;
+        letter-spacing: 0.5px;
+    }
+
+    .reva-header .join-us {
+        padding: 7px 12px;
+        font-size: 9px;
+    }
+
+    /* HERO — smaller text */
+    .hero-text-block .brand-large {
+        font-size: 38px;
+        letter-spacing: 5px;
+    }
+
+    .hero-text-block .subtext {
+        font-size: 11px;
+        margin-bottom: 20px;
+    }
+
+    /* PORTAL — small enough not to clash with text */
+    .portal-circle {
+        width: 160px;
+        height: 160px;
+    }
+
+    /* STATS BAR — stack 3 stats in a row still but smaller */
+    .stats-bar {
+        padding: 12px 3%;
+        gap: 4px;
+    }
+
+    .stat-item { padding-left: 10px; }
+    .stat-item .value { font-size: 14px; }
+    .stat-item .label { font-size: 8px; }
+
+    /* INTRO */
+    .intro-block {
+        padding: 32px 4%;
+    }
+
+    .intro-left h2 { font-size: 20px; }
+    .intro-left p { font-size: 12px; }
+
+    .intro-stats-row {
+        gap: 14px;
+    }
+
+    .intro-stat .stat-value { font-size: 18px; }
+    .intro-stat .stat-label { font-size: 9px; }
+
+    /* MODULE GRID — 1 column on small phones */
+    .module-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .module-card { height: 200px; }
+
+    .module-section {
+        margin: 0 6px 12px 6px;
+        padding: 24px 4%;
+        border-radius: 16px;
+    }
+
+    .module-header h2 { font-size: 20px; }
+
+    .module-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    /* PACKAGES */
+    .packages-section {
+        padding: 8px 4% 32px 4%;
+    }
+
+    .package-card-dark {
+        padding: 24px 20px;
+        min-height: 200px;
+    }
+
+    .package-card-dark h3 { font-size: 18px; }
+
+    .package-card-img {
+        min-height: 200px;
+        padding: 20px;
+    }
+
+    .package-card-img h4 { font-size: 15px; }
+
+    /* FOOTER */
+    .page-footer { padding: 24px 4%; font-size: 10px; }
+}
+
+/* =====================================================
+   BUTTON STYLES & ANIMATIONS
+   Applies to: landing LOGIN, hero DISCOVERY & HEALING,
+   stats-bar PLAY VIDEO, view-more-btn, nav-arrows,
+   browse-btn
+   ===================================================== */
+
+/* ---------- SHARED RIPPLE SPAN ---------- */
+.btn-ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: rippleOut 0.55s linear;
+    pointer-events: none;
+}
+@keyframes rippleOut {
+    to { transform: scale(4); opacity: 0; }
+}
+
+/* ---------- LOGIN BUTTON (header) ---------- */
+.reva-header .join-us {
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1.5px;
+    border-radius: 6px;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 0.3s ease;
+}
+
+.reva-header .join-us::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(0,255,255,0.18) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.reva-header .join-us:hover::before {
+    transform: translateX(100%);
+}
+
+.reva-header .join-us:hover {
+    background-color: #00ffff;
+    color: #000;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 22px rgba(0,255,255,0.45);
+    animation: none;
+}
+
+.reva-header .join-us:active {
+    transform: scale(0.97);
+}
+
+/* ---------- HERO BUTTONS — DISCOVERY & HEALING ---------- */
+.hero-text-block .join-us {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 0 6px;
+    padding: 13px 30px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition:
+        transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+/* DISCOVERY — outlined cyan */
+.hero-text-block .join-us:first-of-type {
+    background: transparent;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    box-shadow: 0 0 0 0 rgba(0,255,255,0);
+    animation: discoverPulse 3s ease-in-out infinite;
+}
+
+@keyframes discoverPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0,255,255,0.35); }
+    50%       { box-shadow: 0 0 0 8px rgba(0,255,255,0); }
+}
+
+.hero-text-block .join-us:first-of-type::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #00ffff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+    z-index: 0;
+}
+
+.hero-text-block .join-us:first-of-type:hover::before {
+    transform: scaleX(1);
+}
+
+.hero-text-block .join-us:first-of-type:hover {
+    color: #000;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 28px rgba(0,255,255,0.5);
+    animation: none;
+}
+
+.hero-text-block .join-us:first-of-type span,
+.hero-text-block .join-us:first-of-type {
+    position: relative;
+    z-index: 1;
+}
+
+/* HEALING — solid white / fills dark on hover */
+.hero-text-block .join-us:last-of-type {
+    background: #ffffff;
+    color: #000000;
+    border: 2px solid transparent;
+    animation: loginPulse 2s infinite;
+}
+
+.hero-text-block .join-us:last-of-type::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #0d121c 0%, #1a2a3a 100%);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.35s ease;
+    z-index: 0;
+}
+
+.hero-text-block .join-us:last-of-type:hover::after {
+    transform: scaleY(1);
+}
+
+.hero-text-block .join-us:last-of-type:hover {
+    color: #00ffff;
+    border-color: #00ffff;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+    animation: none;
+}
+
+.hero-text-block .join-us:last-of-type,
+.hero-text-block .join-us:last-of-type * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text-block .join-us:active {
+    transform: scale(0.96) !important;
+}
+
+/* ---------- PLAY VIDEO BUTTON (stats bar) ---------- */
+/*.stats-bar .play-video {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.25s ease,
+        box-shadow 0.3s ease,
+        letter-spacing 0.3s ease;
+    background: transparent;
+    border: 1px solid #00ffff;
+}
+
+.stats-bar .play-video::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #00ffff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+    z-index: 0;
+}
+
+.stats-bar .play-video:hover::before {
+    transform: scaleX(1);
+}
+
+.stats-bar .play-video:hover {
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 4px 18px rgba(0,255,255,0.4);
+    letter-spacing: 1.5px;
+}
+
+.stats-bar .play-video span,
+.stats-bar .play-video {
+    position: relative;
+    z-index: 1;
+}
+
+.stats-bar .play-video:active { transform: scale(0.97); }
+*/
+/* ---------- VIEW MORE BUTTON (module section) ---------- */
+.view-more-btn {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 0.3s ease,
+        letter-spacing 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.view-more-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+    z-index: 0;
+}
+
+.view-more-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.view-more-btn:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    border-color: rgba(255,255,255,0.15);
+    letter-spacing: 1px;
+}
+
+.view-more-btn:active { transform: scale(0.97); }
+
+/* ---------- NAV ARROWS (carousel) ---------- */
+.nav-arrow {
+    position: relative;
+    overflow: hidden;
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 0.25s ease;
+}
+
+.nav-arrow:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+.nav-arrow:first-child:hover { transform: scale(1.15) translateX(-2px); }
+.nav-arrow:last-child:hover  { transform: scale(1.15) translateX(2px); }
+
+.nav-arrow:active { transform: scale(0.92) !important; }
+
+/* ---------- BROWSE ALL PACKAGES BUTTON ---------- */
+.browse-btn {
+    position: relative;
+    overflow: hidden;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 0.3s ease,
+        letter-spacing 0.3s ease;
+}
+
+.browse-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #00ffff 0%, #0099cc 100%);
+    transform: translateY(100%);
+    transition: transform 0.35s ease;
+    z-index: 0;
+}
+
+.browse-btn:hover::before { transform: translateY(0); }
+
+.browse-btn:hover {
+    color: #000;
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 8px 24px rgba(0,153,204,0.35);
+    letter-spacing: 1px;
+}
+
+.browse-btn,
+.browse-btn * { position: relative; z-index: 1; }
+
+.browse-btn:active { transform: scale(0.97); }
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the name and nav list */
+    gap: 10px;
+}
+
+.user-display {
+    font-size: 14px;
+    font-weight: 800;
+    color: #00ffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    height: 20px; /* Prevents layout jump when name loads */
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+}
+
+#logout-btn {
+    background: transparent;
+    border: 1px solid #1285bb;
+    color: #ff4b4b;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+#logout-btn:hover {
+    background: #1285bb;
+    color: #fff;
+}
+
+/* Footer legal links (index.html uses its own light-footer palette) */
+.page-footer .legal-links{display:block;margin-top:6px;}
+.page-footer .legal-links a{color:#3a5a8a;margin:0 6px;text-decoration:underline;}
+
+/* Cookie consent banner (shared logic in main.js, styled here to match index.html) */
+#cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:200;background:#0d121c;color:#fff;padding:16px 6%;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;font-size:13px;box-shadow:0 -6px 24px rgba(0,0,0,.3);transform:translateY(100%);transition:transform .4s ease;font-family:'Montserrat',sans-serif;}
+#cookie-banner.show{transform:translateY(0);}
+#cookie-banner p{margin:0;max-width:640px;color:#d7e2f0;}
+#cookie-banner a{color:#00ffff;text-decoration:underline;}
+#cookie-banner button{background:#00ffff;color:#0d121c;border:none;padding:10px 20px;border-radius:6px;font-weight:700;font-size:12px;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;}
+    </style>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+<div id="g_id_onload"
+         data-client_id="818091219009-t1pedeki8hjk65st631ji5e0t520ltu6.apps.googleusercontent.com"
+         data-context="signin"
+         data-ux_mode="popup"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="true">
+    </div>
+    <!-- ===================== LANDING PAGE ===================== -->
+    <section id="landing-page">
+<header class="reva-header">
+    <div class="brand">REVA</div>
+    <div class="header-right">
+        <div id="user-info" class="user-display"></div>
+
+        <nav>
+            <ul class="nav-list">
+                <li><a href="discovery.html">DISCOVERY</a></li>
+                <li><a href="healing.html">HEALING</a></li>
+                <li><a href="community.html">COMMUNITY</a></li>
+                <li id="auth-controls">
+                    <div id="login-btn-wrapper">
+                        <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="signin" data-size="medium"></div>
+                    </div>
+                    <button id="logout-btn" style="display:none;">SIGN OUT</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+        <div class="hero-container">
+            <div class="hero-text-block">
+                <h1 class="brand-large">REVA</h1>
+                <p class="subtext">A platform for Complex Trauma</p>
+                <a href="discovery.html"><button class="join-us">DISCOVERY</button></a>
+<a href="healing.html"><button class="join-us">HEALING</button></a>
+            </div>
+        </div>
+
+        <div class="portal-container">
+            <div class="portal-circle"></div>
+        </div>
+
+        <footer class="stats-bar">
+            <!-- Note: earlier vanity numbers here were placeholders, not real
+                 figures — replaced with honest, non-numeric claims. Swap in
+                 real metrics once you have them. -->
+            <div class="stat-item">
+                <div class="value">100%</div>
+                <div class="label">FREE ACCESS</div>
+            </div>
+            <div class="stat-item">
+                <div class="value">NEW</div>
+                <div class="label">GROWING LIBRARY</div>
+            </div>
+            <div class="stat-item">
+                <div class="value">OPEN</div>
+                <div class="label">TO EVERYONE</div>
+            </div>
+            <button class="play-video">▶ PLAY VIDEO</button>
+                <div class="intro-social">
+                    <!-- TODO: add your real Instagram/X handles once created -->
+                    <a href="#" aria-disabled="true" title="Coming soon" onclick="return false;">IG</a>
+                    <a href="#" aria-disabled="true" title="Coming soon" onclick="return false;">𝕏</a>
+                    <a href="https://facebook.com/yourrevapage" target="_blank" rel="noopener">f</a>
+                </div>
+        </footer>
+    </section>
+
+    <!-- ===================== CONTENT SECTION ===================== -->
+    <section id="content-section">
+
+        <!-- WHY REVA / INTRO BLOCK -->
+        <div class="intro-block">
+            <!-- Left: heading + social + stats -->
+            <div class="intro-left">
+                        <h2>A Different Way to Heal</h2>
+
+        <p>
+        Healing from trauma isn’t simple. Some days you understand yourself, 
+        other days everything feels unclear again.  
+
+        REVA was built from lived experience — not as something perfect, 
+        but as something steady you can return to. A place that meets you 
+        where you are, without pressure.
+        </p>
+
+                <div class="intro-stats-row">
+                    <div class="intro-stat">
+                        <div class="stat-icon">
+                            <!-- heart / people icon -->
+                            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div class="stat-value">12k</div>
+                        <div class="stat-label">Happy & Supported Users</div>
+                    </div>
+                    <div class="intro-stat">
+                        <div class="stat-icon">
+                            <!-- shield / check icon -->
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div class="stat-value">10yrs</div>
+                        <div class="stat-label">Proven Recovery Journey</div>
+                    </div>
+                    <div class="intro-stat">
+                        <div class="stat-icon">
+                            <!-- location/map icon -->
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <div class="stat-value">50+</div>
+                        <div class="stat-label">C-PTSD Concepts Covered</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: feature cards -->
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="fc-icon">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                    </div>
+                    <div class="fc-text">
+                        <h4>Built From Real Experience</h4>
+                <p>
+                This isn’t just information — it comes from living through it. 
+                The confusion, the patterns, and the struggles that aren’t always visible.
+                </p> </div>
+                </div>
+                <div class="feature-card">
+                    <div class="fc-icon">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <div class="fc-text">
+                        <h4>All-in-One Platform</h4>
+                        <p>Access everything in one place — easy, fast, and hassle-free, whether for quick check-ins or planned healing sessions.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="fc-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5z"/><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z"/></svg>
+                    </div>
+                    <div class="fc-text">
+                        <h4>You’re Not Alone</h4>
+                <p>
+                There are others who understand this. Here, you can exist 
+                without needing to explain everything.
+                </p> </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOP DESTINATIONS / MODULE SECTION -->
+        <div class="module-section">
+            <div class="module-header">
+            <h2>Healing Paths</h2>
+        <p>
+        Explore different parts of your healing — your mind, your body, 
+        and the patterns shaped by trauma.
+        </p>            </div>
+
+            <div class="module-grid">
+                <!-- Card 1 -->
+                <div class="module-card">
+                    <div class="card-bg card-bg-1"></div>
+                    <h4>The Mind</h4>
+                    <div class="card-meta">
+                        <div class="rating-row">Understanding thought patterns &nbsp;|&nbsp; <span class="star">★</span>&nbsp;4.8 (12k)</div>
+                        <div class="location-row"><span class="location-dot"></span> Awareness</div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="module-card">
+                    <div class="card-bg card-bg-2"></div>
+                    <h4>Emotional Patterns</h4>
+                    <div class="card-meta">
+                        <div class="rating-row">Recognizing triggers &nbsp;|&nbsp; <span class="star">★</span>&nbsp;4.6 (950)</div>
+                        <div class="location-row"><span class="location-dot"></span> Regulation</div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="module-card">
+                    <div class="card-bg card-bg-3"></div>
+                    <h4>The Body</h4>
+                    <div class="card-meta">
+                        <div class="rating-row">Nervous system responses &nbsp;|&nbsp; <span class="star">★</span>&nbsp;4.9 (2k)</div>
+                        <div class="location-row"><span class="location-dot"></span> Somatic healing</div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="module-card">
+                    <div class="card-bg card-bg-4"></div>
+                    <h4>Rebuilding Self</h4>
+                    <div class="card-meta">
+                        <div class="rating-row">Identity & control &nbsp;|&nbsp; <span class="star">★</span>&nbsp;4.7 (780)</div>
+                        <div class="location-row"><span class="location-dot"></span>Recovery</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="module-controls">
+                <button class="view-more-btn">View more</button>
+                <div class="nav-arrows">
+                    <button class="nav-arrow">&#8249;</button>
+                    <button class="nav-arrow">&#8250;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOUR PACKAGES / 3-COLUMN BOTTOM SECTION -->
+        <div class="packages-section">
+            <!-- Dark left card -->
+            <div class="package-card-dark">
+                <div>
+                    <h3>What You’ll Find Here</h3>
+                    <p>Tools, understanding, and space to heal — at your own pace.</p>
+                </div>
+                <button class="browse-btn">Browse all packages</button>
+            </div>
+
+            <!-- Image card 2 -->
+            <div class="package-card-img">
+                <div class="pkg-bg pkg-bg-2"></div>
+                <div class="pkg-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                </div>
+                <h4>Individual Protocols</h4>
+                <p>Guided steps to help you stabilize, understand your reactions, 
+        and slowly regain control.</p>
+            </div>
+
+            <!-- Image card 3 -->
+            <div class="package-card-img">
+                <div class="pkg-bg pkg-bg-3"></div>
+                <div class="pkg-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3 17l4-8 4 4 4-6 4 10"/></svg>
+                </div>
+                <h4>Community Circles</h4>
+                <p>Spaces where you can listen, share, or just exist — without needing to explain everything.</p>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            &copy; REVA. All Rights Reserved. Complex Trauma Healing Platform.
+            <span class="legal-links"><a href="privacy.html">Privacy</a>·<a href="terms.html">Terms</a>·<a href="cookies.html">Cookies</a></span>
+        </div>
+
+    </section>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithCredential, onAuthStateChanged, signOut } 
+    from "https://www.gstatic.com/firebasejs/12.12.0/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyBOG4WGnvMUXcGxOHadLilkhpZNNFBgPEs",
+        authDomain: "reva-c414f.firebaseapp.com",
+        projectId: "reva-c414f",
+        storageBucket: "reva-c414f.firebasestorage.app",
+        messagingSenderId: "818091219009",
+        appId: "1:818091219009:web:0aca995cffab42618e0ec0"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const userInfoDiv = document.getElementById("user-info");
+    const loginWrapper = document.getElementById("login-btn-wrapper");
+    const logoutBtn = document.getElementById("logout-btn");
+
+    // Monitor Auth State
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            userInfoDiv.innerText = user.displayName;
+            loginWrapper.style.display = "none";
+            logoutBtn.style.display = "block";
+        } else {
+            userInfoDiv.innerText = "";
+            loginWrapper.style.display = "block";
+            logoutBtn.style.display = "none";
+        }
+    });
+
+    // Handle Login (Redirect removed)
+    window.handleCredentialResponse = function(response) {
+        const credential = GoogleAuthProvider.credential(response.credential);
+        signInWithCredential(auth, credential)
+            .then((result) => {
+                console.log("Logged in as:", result.user.displayName);
+                // Page stays at index.html
+            })
+            .catch((error) => console.error("Login Error:", error));
+    };
+
+    // Handle Logout
+    logoutBtn.addEventListener("click", () => {
+        signOut(auth).then(() => {
+            console.log("User signed out");
+        });
+    });
+</script>
+
+<script src="main.js"></script>
+</body>
+</html>
